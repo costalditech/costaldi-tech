@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Costaldi Tech | Assistência Técnica</title>
+
+    <meta name="description"
+          content="Costaldi Tech - Conserto e manutenção de computadores, notebooks, TVs e caixas de som. Atendimento em toda Praia Grande.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080b12;
+            color: white;
+        }
+
+        /* HEADER */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 11, 18, 0.95);
+            border-bottom: 1px solid #1c2a40;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #168cff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #168cff;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 80% 30%, #06366d 0%, transparent 35%),
+                linear-gradient(135deg, #080b12, #0b1626);
+            padding: 120px 25px 70px;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 75px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #168cff;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #c4cedb;
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #168cff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #006bd1;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #168cff;
+            color: #168cff;
+        }
+
+        .btn-secondary:hover {
+            background: #168cff;
+            color: white;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #9da9b8;
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: #0b1019;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #111925;
+            border: 1px solid #1c2a40;
+            border-radius: 14px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #168cff;
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #9da9b8;
+            line-height: 1.5;
+        }
+
+        /* DIFERENCIAIS */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            background: #0d141f;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 3px solid #168cff;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #aab5c3;
+            line-height: 1.5;
+        }
+
+        /* ORÇAMENTO */
+
+        .budget {
+            background:
+                linear-gradient(rgba(8, 11, 18, .9), rgba(8, 11, 18, .95)),
+                radial-gradient(circle at center, #064b91, #080b12);
+        }
+
+        .form-box {
+            max-width: 750px;
+            margin: auto;
+            background: #101823;
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid #1d3048;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 7px;
+            border: 1px solid #2a3a50;
+            background: #080d15;
+            color: white;
+            outline: none;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #168cff;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        /* LOCATION */
+
+        .location {
+            text-align: center;
+        }
+
+        .location p {
+            color: #aab5c3;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #05070b;
+            border-top: 1px solid #172335;
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #8793a2;
+            margin: 7px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* WHATSAPP */
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 29px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.4);
+            z-index: 999;
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* RESPONSIVO */
+
+        @media (max-width: 850px) {
+
+            nav {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .form-box {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            COSTALDI <span>TECH</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#orcamento">Orçamento</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- INÍCIO -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <h1>
+            Seu equipamento<br>
+            em <span>boas mãos.</span>
+        </h1>
+
+        <p>
+            Conserto e manutenção de computadores, notebooks,
+            TVs e caixas de som. Atendimento profissional em
+            toda Praia Grande.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#orcamento" class="btn btn-primary">
+                Solicitar orçamento
+            </a>
+
+            <a href="#servicos" class="btn btn-secondary">
+                Ver serviços
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVIÇOS -->
+
+<section class="services" id="servicos">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Nossos serviços</h2>
+
+            <p>
+                Soluções para diversos tipos de equipamentos.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">💻</div>
+
+                <h3>Computadores</h3>
+
+                <p>
+                    Manutenção, limpeza, formatação,
+                    diagnóstico e reparos.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">💻</div>
+
+                <h3>Notebooks</h3>
+
+                <p>
+                    Manutenção e diagnóstico de notebooks
+                    e seus componentes.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">📺</div>
+
+                <h3>Televisores</h3>
+
+                <p>
+                    Diagnóstico e reparo de diversos
+                    modelos de TVs.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">🔊</div>
+
+                <h3>Caixas de som</h3>
+
+                <p>
+                    Diagnóstico e manutenção de caixas
+                    de som e equipamentos de áudio.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIFERENCIAIS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Por que escolher a Costaldi Tech?</h2>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <h3>🔧 Atendimento profissional</h3>
+
+                <p>
+                    Trabalhamos para encontrar a solução
+                    adequada para o seu equipamento.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>⚡ Agilidade</h3>
+
+                <p>
+                    Buscamos realizar nossos serviços
+                    com rapidez e responsabilidade.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>📍 Praia Grande</h3>
+
+                <p>
+                    Atendimento em toda Praia Grande,
+                    conforme disponibilidade.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ORÇAMENTO -->
+
+<section class="budget" id="orcamento">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Solicite seu orçamento</h2>
+
+            <p>
+                Preencha os dados abaixo e fale conosco pelo WhatsApp.
+            </p>
+
+        </div>
+
+
+        <div class="form-box">
+
+            <form id="orcamentoForm">
+
+                <div class="form-group">
+
+                    <label for="nome">
+                        Seu nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="telefone">
+                        WhatsApp
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        placeholder="(13) 99999-9999"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="equipamento">
+                        Equipamento
+                    </label>
+
+                    <select id="equipamento" required>
+
+                        <option value="">
+                            Selecione
+                        </option>
+
+                        <option>
+                            Computador
+                        </option>
+
+                        <option>
+                            Notebook
+                        </option>
+
+                        <option>
+                            TV
+                        </option>
+
+                        <option>
+                            Caixa de som
+                        </option>
+
+                        <option>
+                            Outro
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="marca">
+                        Marca / modelo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="marca"
+                        placeholder="Ex.: Samsung, LG, Dell..."
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="problema">
+                        Qual é o problema?
+                    </label>
+
+                    <textarea
+                        id="problema"
+                        placeholder="Descreva o problema do equipamento..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary submit"
+                >
+                    📲 Enviar orçamento pelo WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTATO -->
+
+<section class="location" id="contato">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Costaldi Tech</h2>
+
+            <p>
+                📍 Atendimento em toda Praia Grande - SP
+            </p>
+
+            <p>
+                📲 Entre em contato e faça seu orçamento
+                sem compromisso.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        <strong>Costaldi Tech</strong>
+    </p>
+
+    <p>
+        Assistência técnica e manutenção
+    </p>
+
+    <p>
+        © 2026 Costaldi Tech. Todos os direitos reservados.
+    </p>
+
+</footer>
+
+
+<!-- BOTÃO WHATSAPP -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/5513999999999"
+    target="_blank"
+    aria-label="WhatsApp"
+>
+    ☎
+</a>
+
+
+<script>
+
+    /*
+       TROQUE O NÚMERO ABAIXO PELO WHATSAPP DA COSTALDI TECH.
+
+       Exemplo:
+       5513998765432
+
+       Não coloque +, espaços ou parênteses.
+    */
+
+    const numeroWhatsApp = "5513997330798";
+
+
+    document
+        .getElementById("orcamentoForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const nome =
+                document.getElementById("nome").value;
+
+            const telefone =
+                document.getElementById("telefone").value;
+
+            const equipamento =
+                document.getElementById("equipamento").value;
+
+            const marca =
+                document.getElementById("marca").value;
+
+            const problema =
+                document.getElementById("problema").value;
+
+
+            const mensagem =
+                `Olá, Costaldi Tech! 👋
+
+Gostaria de solicitar um orçamento.
+
+👤 Nome: ${nome}
+
+📱 Meu WhatsApp: ${telefone}
+
+🔧 Equipamento: ${equipamento}
+
+🏷️ Marca/Modelo: ${marca || "Não informado"}
+
+🛠️ Problema:
+${problema}
+
+📍 Atendimento: Praia Grande - SP`;
+
+
+            const url =
+                `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+
+            window.open(url, "_blank");
+
+        });
+
+</script>
+
+</body>
+</html>
